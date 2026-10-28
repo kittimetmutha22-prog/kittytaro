@@ -7,6 +7,12 @@ let deck = [], picks = [];
 $("title").textContent = spread.title;
 $("desc").textContent = spread.desc;
 document.title = spread.title + " | ไพ่ยิปซี";
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ไฮไลต์ปุ่มรูปแบบการดูที่กำลังใช้อยู่
+document.querySelectorAll(`.row a[href="reading.html?type=${type}"]`).forEach(a => {
+  a.classList.add("active"); a.setAttribute("aria-current", "page");
+});
 
 // ช่องวางไพ่ (คว่ำไว้)
 function renderSlots() {
@@ -31,7 +37,11 @@ function startPick() {
   fan.innerHTML = "";
   deck.forEach((d, i) => {
     const el = cardEl(null);
+    el.tabIndex = 0;
+    el.setAttribute("role", "button");
+    el.setAttribute("aria-label", `ไพ่ใบที่ ${i + 1}`);
     el.onclick = () => pick(i, el);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(i, el); } };
     fan.appendChild(el);
   });
   $("step-pick").classList.add("shuffle");
@@ -46,9 +56,13 @@ function updateHint() {
 function pick(i, el) {
   if (picks.length >= N || el.classList.contains("picked")) return;
   el.classList.add("picked");
+  el.tabIndex = -1;
+  el.setAttribute("aria-disabled", "true");
+  const next = el.nextElementSibling || el.parentElement.firstElementChild;
+  if (next && document.activeElement === el) next.focus();
   const d = deck[i];
   const slot = $("spread").children[picks.length];
-  const c = cardEl(d.card, { reversed: d.reversed });
+  const c = cardEl(d.card, { reversed: d.reversed, decorative: true });
   slot.prepend(c);
   picks.push(d);
   updateHint();
@@ -113,12 +127,13 @@ function showResult() {
       <h3><a href="card.html?id=${c.id}">${c.th}</a> <small class="muted">${c.en}</small></h3>
       <span class="tag ${d.reversed ? "rev" : ""}">${d.reversed ? "กลับหัว" : "หัวตั้ง"}</span><small class="muted">${c.kw}</small>
       <p>${meaningText(d)}</p>` +
-      (isOverview ? `<p>❤️ ความรัก: ${c.love}<br>💼 การงาน: ${c.work}<br>💰 การเงิน: ${c.money}<br>🌿 สุขภาพ: ${c.health}</p>` : "");
+      (isOverview ? `<p>${ASPECTS.map(([k, t]) => `${svgIcon(k)} ${t}: ${c[k]}`).join("<br>")}</p>` : "");
     item.appendChild(info);
     res.appendChild(item);
   });
   $("step-result").hidden = false;
-  $("step-result").scrollIntoView({ behavior: "smooth" });
+  $("step-result").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+  $("summary").focus();
 }
 
 $("btn-shuffle").onclick = startPick;

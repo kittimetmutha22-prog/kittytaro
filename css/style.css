@@ -24,7 +24,11 @@ footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px 16px;b
 .panel{background:linear-gradient(160deg,var(--panel),var(--bg2));border:1px solid #e3c06b33;border-radius:var(--radius);padding:20px}
 a.panel{text-decoration:none;color:var(--text);transition:transform .2s,border-color .2s;display:block}
 a.panel:hover{transform:translateY(-4px);border-color:var(--gold)}
-.panel .icon{font-size:2rem}
+.icon,.ico,.sym{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.icon{width:36px;height:36px}
+.ico{width:1.1em;height:1.1em;vertical-align:-.15em}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.btn.ghost.active{background:var(--gold);color:#1b1030}
 .panel small{color:var(--muted)}
 .btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#1b1030;border:0;border-radius:999px;padding:10px 24px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
 .btn.ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
@@ -46,13 +50,13 @@ input,select{font:inherit;background:var(--bg2);color:var(--text);border:1px sol
 .art img{width:100%;height:100%;object-fit:cover;display:block}
 .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:8px;border:2px solid var(--gold);border-radius:10px;background:radial-gradient(circle,#3a2670,#1b1030);color:var(--gold);font-family:"Sriracha",cursive}
 .fallback .num{font-size:.9rem;opacity:.8}
-.fallback .sym{font-size:2.2rem;line-height:1}
+.fallback .sym{width:40%;height:auto;aspect-ratio:1}
 .fallback .nm{font-size:.85rem;line-height:1.2}
 .static .inner{transform:none!important}
 .static .front{transform:none}
 
 /* ---------- Reading ---------- */
-.deck-fan{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:20px 0}
+.deck-fan{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:20px 0}
 .deck-fan .tcard{--card-w:54px;transition:transform .2s}
 .deck-fan .tcard:hover{transform:translateY(-8px)}
 .deck-fan .tcard.picked{opacity:.15;pointer-events:none}
@@ -78,6 +82,11 @@ input,select{font:inherit;background:var(--bg2);color:var(--text);border:1px sol
 .detail .tcard{--card-w:220px}
 .detail .info{flex:1 1 300px}
 .meaning h3{font-size:1.2rem;margin-top:1em}
+
+/* เคารพการตั้งค่า "ลดการเคลื่อนไหว" ของผู้ใช้ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
 
 @media (max-width:600px){
   :root{--card-w:96px}

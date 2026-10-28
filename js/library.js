@@ -12,7 +12,7 @@ if (lib) {
     list.forEach(c => {
       const a = document.createElement("a");
       a.href = `card.html?id=${c.id}`;
-      a.appendChild(cardEl(c, { static: true }));
+      a.appendChild(cardEl(c, { static: true, decorative: true }));
       a.insertAdjacentHTML("beforeend", `<div>${c.th}</div><small class="muted">${c.en}</small>`);
       lib.appendChild(a);
     });
@@ -33,10 +33,7 @@ if (detail) {
     <p><b>คำสำคัญ:</b> ${c.kw}</p>
     <h3>ความหมายไพ่หัวตั้ง</h3><p>${c.up}</p>
     <h3>ความหมายไพ่กลับหัว</h3><p>${c.rev}</p>
-    <h3>❤️ ความรัก</h3><p>${c.love}</p>
-    <h3>💼 การงาน</h3><p>${c.work}</p>
-    <h3>💰 การเงิน</h3><p>${c.money}</p>
-    <h3>🌿 สุขภาพ</h3><p>${c.health}</p>
+    ${ASPECTS.map(([k, t]) => `<h3>${svgIcon(k)} ${t}</h3><p>${c[k]}</p>`).join("")}
     <div class="row" style="justify-content:space-between">
       <a class="btn ghost" href="card.html?id=${prev.id}">← ${prev.th}</a>
       <a class="btn ghost" href="card.html?id=${next.id}">${next.th} →</a>

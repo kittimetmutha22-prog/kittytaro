@@ -24,20 +24,20 @@
   </section>
 
   <section id="step-ask" class="panel center">
-    <p>ตั้งจิตให้สงบ แล้วพิมพ์คำถามของคุณ (ไม่บังคับ)</p>
+    <label for="question"><p>ตั้งจิตให้สงบ แล้วพิมพ์คำถามของคุณ (ไม่บังคับ)</p></label>
     <input id="question" placeholder="เช่น ความรักของฉันจะเป็นอย่างไร" maxlength="120">
     <div class="row"><button class="btn" id="btn-shuffle">สับไพ่</button></div>
   </section>
 
   <section id="step-pick" hidden>
-    <p class="center" id="pick-hint"></p>
+    <p class="center" id="pick-hint" aria-live="polite"></p>
     <div class="deck-fan" id="fan"></div>
   </section>
 
   <section id="spread" class="spread"></section>
 
   <section id="step-result" hidden>
-    <div class="panel" id="summary"></div>
+    <div class="panel" id="summary" tabindex="-1"></div>
     <div class="result" id="result"></div>
     <div class="row">
       <button class="btn" id="btn-copy">คัดลอกผลทำนาย</button>
