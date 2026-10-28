@@ -39,7 +39,7 @@ input,select{font:inherit;background:var(--bg2);color:var(--text);border:1px sol
 .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin:14px 0}
 
 /* ---------- Card ---------- */
-.tcard{width:var(--card-w);aspect-ratio:11/19;perspective:900px;cursor:pointer;flex:none}
+.tcard{width:var(--card-w);aspect-ratio:2/3;perspective:900px;cursor:pointer;flex:none}
 .tcard .inner{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
 .tcard.flipped .inner{transform:rotateY(180deg)}
 .tcard .face{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;overflow:hidden;box-shadow:0 6px 18px #0008}
@@ -47,7 +47,7 @@ input,select{font:inherit;background:var(--bg2);color:var(--text);border:1px sol
 .tcard .front{transform:rotateY(180deg);background:#1b1030}
 .tcard.reversed .front .art{transform:rotate(180deg)}
 .art{width:100%;height:100%;position:relative}
-.art img{width:100%;height:100%;object-fit:cover;display:block}
+.art img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
 .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:8px;border:2px solid var(--gold);border-radius:10px;background:radial-gradient(circle,#3a2670,#1b1030);color:var(--gold);font-family:"Sriracha",cursive}
 .fallback .num{font-size:.9rem;opacity:.8}
 .fallback .sym{width:40%;height:auto;aspect-ratio:1}

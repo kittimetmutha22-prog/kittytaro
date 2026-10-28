@@ -1,5 +1,5 @@
 // เปลี่ยนนามสกุลรูปไพ่ได้ที่นี่ (เช่น ".png" หรือ ".webp")
-const IMAGE_EXT = ".jpg";
+const IMAGE_EXT = ".webp";
 const IMAGE_DIR = "images/cards/";
 const REVERSE_CHANCE = 0.3;
 const ROMAN = ["0","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV","XVI","XVII","XVIII","XIX","XX","XXI"];

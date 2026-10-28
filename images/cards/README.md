@@ -1,7 +1,7 @@
 # ใส่รูปไพ่ที่โฟลเดอร์นี้
 
 ตั้งชื่อไฟล์ตามรายการด้านล่าง ถ้ารูปไหนยังไม่มี เว็บจะแสดงไพ่สำรองให้เอง
-ค่าเริ่มต้นเป็น `.jpg` ถ้ารูปเป็นนามสกุลอื่น ให้แก้ `IMAGE_EXT` ใน `js/deck.js`
+ค่าเริ่มต้นเป็น `.webp` ถ้ารูปเป็นนามสกุลอื่น ให้แก้ `IMAGE_EXT` ใน `js/deck.js`
 หลังไพ่อยู่ที่ `images/back.svg` (เปลี่ยนเป็นรูปของคุณได้)
 
 ## ไพ่ชุดใหญ่ (Major Arcana)
@@ -24,4 +24,4 @@
 | 13 | Queen |
 | 14 | King |
 
-ตัวอย่าง: `wands-01.jpg` = Ace of Wands, `cups-13.jpg` = Queen of Cups, `pentacles-14.jpg` = King of Pentacles
+ตัวอย่าง: `wands-01.webp` = Ace of Wands, `cups-13.webp` = Queen of Cups, `pentacles-14.webp` = King of Pentacles
