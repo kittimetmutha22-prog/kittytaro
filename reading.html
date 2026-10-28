@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ดูดวงไพ่ยิปซี</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&family=Sriracha&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header><a class="brand" href="index.html">✦ ไพ่ยิปซี</a>
+<nav><a href="index.html">หน้าแรก</a><a href="reading.html?type=three" class="active">ดูดวง</a><a href="cards.html">ความหมายไพ่</a></nav></header>
+<main>
+  <section class="center">
+    <h1 id="title"></h1>
+    <p class="muted" id="desc"></p>
+    <div class="row">
+      <a class="btn ghost" href="reading.html?type=one">1 ใบ</a>
+      <a class="btn ghost" href="reading.html?type=three">3 ใบ</a>
+      <a class="btn ghost" href="reading.html?type=full">แบบเต็ม</a>
+      <a class="btn ghost" href="reading.html?type=monthly">รายเดือน</a>
+      <a class="btn ghost" href="reading.html?type=yearly">รายปี</a>
+    </div>
+  </section>
+
+  <section id="step-ask" class="panel center">
+    <p>ตั้งจิตให้สงบ แล้วพิมพ์คำถามของคุณ (ไม่บังคับ)</p>
+    <input id="question" placeholder="เช่น ความรักของฉันจะเป็นอย่างไร" maxlength="120">
+    <div class="row"><button class="btn" id="btn-shuffle">สับไพ่</button></div>
+  </section>
+
+  <section id="step-pick" hidden>
+    <p class="center" id="pick-hint"></p>
+    <div class="deck-fan" id="fan"></div>
+  </section>
+
+  <section id="spread" class="spread"></section>
+
+  <section id="step-result" hidden>
+    <div class="panel" id="summary"></div>
+    <div class="result" id="result"></div>
+    <div class="row">
+      <button class="btn" id="btn-copy">คัดลอกผลทำนาย</button>
+      <button class="btn ghost" id="btn-again">ดูใหม่</button>
+    </div>
+  </section>
+</main>
+<footer>คำทำนายเพื่อความบันเทิงเท่านั้น โปรดใช้วิจารณญาณในการตัดสินใจ</footer>
+<script src="js/cards-data.js"></script>
+<script src="js/spreads.js"></script>
+<script src="js/deck.js"></script>
+<script src="js/reading.js"></script>
+</body>
+</html>
